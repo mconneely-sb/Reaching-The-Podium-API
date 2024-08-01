@@ -67,4 +67,14 @@ jobs:
 
       #- name: Run Tests
       #  run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{ secrets.SLM_ACCESSKEY }} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
-       
+
+
+  publish-api-on-swaggerhub:
+    runs-on: ubuntu-latest
+    needs: install-prerequisites
+    steps:
+      - name: Publish SwaggerHub API
+        run: |
+          swaggerhub api:publish $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version
+
+          
