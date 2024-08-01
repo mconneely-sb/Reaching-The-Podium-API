@@ -28,7 +28,7 @@ jobs:
       - name: Install SwaggerHub CLI
         run: |
           npm install swaggerhub-cli -g
-      # - name: Check the API definition exists
+      # - name: Check the API definition exists 
         # env:
          #  SWAGGERHUB_API_KEY: ${{secrets.SWAGGERHUB_API_KEY}}
         # run: |
