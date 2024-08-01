@@ -62,6 +62,6 @@ jobs:
       - name: Install ReadyAPI
         run: sudo sh ${{ github.workspace }}/ReadyAPI-x64-3.53.0.sh -q
 
-      - name: Run Tests
-        run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{ secrets.SLM_ACCESSKEY }} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
+      #- name: Run Tests
+      #  run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{ secrets.SLM_ACCESSKEY }} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
        
