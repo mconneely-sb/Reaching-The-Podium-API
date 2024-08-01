@@ -19,6 +19,7 @@ jobs:
   # This workflow contains a single job called "build"
   validate-api-on-swaggerhub:
     runs-on: ubuntu-latest
+    needs: install-prerequisites
     steps:
       - uses: actions/checkout@v2
       - name: Use Nodejs 12.x
@@ -41,7 +42,7 @@ jobs:
 
   download-and-install-readyapi:
     runs-on: ubuntu-latest
-    needs: install-prerequisites
+    needs: validate-api-on-swaggerhub
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
