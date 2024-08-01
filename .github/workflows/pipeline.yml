@@ -40,7 +40,7 @@ jobs:
        #  run: |
        #    swaggerhub api:validate AlexsDemoOrg/ADefinitelyRealAPI/1.0.0
 
-  download-and-install-readyapi:
+  run-functional-tests-readyapi:
     runs-on: ubuntu-latest
     needs: validate-api-on-swaggerhub
     steps:
@@ -59,3 +59,42 @@ jobs:
 
       - name: Run Tests
         run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{ secrets.SLM_ACCESSKEY }} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
+  
+  publish-api-on-swaggerhub:
+    runs-on: ubuntu-latest
+    needs: run-functional-tests-readyapi
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Nodejs 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install SwaggerHub CLI
+        run: |
+          npm install swaggerhub-cli -g
+          
+  update-api-on-swaggerhub-portal:
+    runs-on: ubuntu-latest
+    needs: publish-api-on-swaggerhub
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Nodejs 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install SwaggerHub CLI
+        run: |
+          npm install swaggerhub-cli -g
+          
+  publish-openapi-to-pactflow:
+    runs-on: ubuntu-latest
+    needs: publish-api-on-swaggerhub
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Nodejs 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install SwaggerHub CLI
+        run: |
+          npm install swaggerhub-cli -g        
