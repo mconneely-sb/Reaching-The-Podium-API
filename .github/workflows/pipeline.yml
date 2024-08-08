@@ -8,6 +8,8 @@ env:
   swaggerhub_project_name: ProjectManagement
   swaggerhub_api_name: ProjectManagementAPI 
   swaggerhub_api_version: 1.0.0 
+  swaggerhub_api_key: ${{secrets.SWAGGERHUB_API_KEY}}
+  slm_access_key:  ${{secrets.SLM_ACCESSKEY}} 
   
 jobs:
   install-prerequisites:
@@ -36,13 +38,9 @@ jobs:
         run: |
           npm install swaggerhub-cli -g
       - name: Check the API definition exists 
-        env:
-          SWAGGERHUB_API_KEY: ${{secrets.SWAGGERHUB_API_KEY}}
         run: |
           swaggerhub api:get $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version
       - name: Validate definition
-        env:
-          SWAGGERHUB_API_KEY: ${{secrets.SWAGGERHUB_API_KEY}}
         run: |
           swaggerhub api:validate $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version
 
@@ -64,7 +62,7 @@ jobs:
         run: sudo sh ${{ github.workspace }}/ReadyAPI-x64-3.53.0.sh -q
 
       #- name: Run Tests
-      #  run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{ secrets.SLM_ACCESSKEY }} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
+      #  run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey $slm_access_key ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
 
 
   set-api-to-published-on-swaggerhub:
@@ -75,8 +73,6 @@ jobs:
         run: |
           npm install swaggerhub-cli -g
       - name: Publish SwaggerHub API
-        env:
-          SWAGGERHUB_API_KEY: ${{secrets.SWAGGERHUB_API_KEY}}
         run: |
           swaggerhub api:publish $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version
 
