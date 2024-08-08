@@ -10,7 +10,7 @@ env:
   swaggerhub_api_version: 1.0.0 
   swaggerhub_api_key: ${{secrets.SWAGGERHUB_API_KEY}}
   slm_access_key:  ${{secrets.SLM_ACCESSKEY}} 
-  
+  pact_broker_base_url: https://mconneely-sb.pactflow.io
 jobs:
   install-prerequisites:
     runs-on: ubuntu-latest
@@ -98,8 +98,8 @@ jobs:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
              docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
-              -e https://mconneely-sb.pactflow.io \
-              -e kf0aIUZpKwJYKD7B-5O6VQ \
+              -e $pact_broker_base_url \
+              -e ${{secrets.PACTFLOW_API_KEY}} \
               pactfoundation/pact-cli:latest \
               pactflow publish-provider-contract \
               MConneely-AutoMockAPI.yaml \
