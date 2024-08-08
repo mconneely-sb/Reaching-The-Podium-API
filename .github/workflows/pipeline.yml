@@ -97,29 +97,20 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-              curl -X POST "https://.pactflow.io/provider-contracts/provider/api-podium-payee/publish \
-               --header 'Accept: application/hal+json' \
-               --header 'Authorization: ${{ secrets.PACTFLOW_API_KEY }}' \
-               --header 'Content-Type: application/json' \
-                --data '{
-                "pacticipantVersionNumber": "cefbfb4d4e1a53b8044cf399fee21033e603e5fc",
-                "tags": [
-                  "string"
-                ],
-                "branch": "main",
-                "buildUrl": "string",
-                "contract": {
-                  "content": "string",
-                  "contentType": "application/json",
-                  "specification": "oas",
-                  "selfVerificationResults": {
-                    "success": true,
-                    "content": "pass",
-                    "contentType": "string",
-                    "format": "string",
-                    "verifier": "string",
-                    "verifierVersion": "string"
-                  }'
+             docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
+              -e https://mconneely-sb.pactflow.io \
+              -e kf0aIUZpKwJYKD7B-5O6VQ \
+              pactfoundation/pact-cli:latest \
+              pactflow publish-provider-contract \
+              MConneely-AutoMockAPI.yaml \
+              --provider "pactflow-example-bi-directional-provider-rapi" \
+              --provider-app-version 3a0994c \
+              --branch test-pactflow-command \
+              --content-type application/yaml \
+              --verification-exit-code=0 \
+              --verification-results TEST-Test_Suite_1.xml \
+              --verification-results-content-type text/plain \
+              --verifier readyapi
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
