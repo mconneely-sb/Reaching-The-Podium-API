@@ -87,8 +87,32 @@ jobs:
     needs: set-api-to-published-on-swaggerhub
     steps:
       - name: Install SwaggerHub CLI
+        env:
+         SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-           npm install swaggerhub-cli -g
+              curl -X POST "https://.pactflow.io/provider-contracts/provider/api-podium-payee/publish \
+               --header 'Accept: application/hal+json' \
+               --header 'Authorization: ${{ secrets.PACTFLOW_API_KEY }}' \
+               --header 'Content-Type: application/json' \
+                --data '{
+                "pacticipantVersionNumber": "cefbfb4d4e1a53b8044cf399fee21033e603e5fc",
+                "tags": [
+                  "string"
+                ],
+                "branch": "main",
+                "buildUrl": "string",
+                "contract": {
+                  "content": "string",
+                  "contentType": "application/json",
+                  "specification": "oas",
+                  "selfVerificationResults": {
+                    "success": true,
+                    "content": "pass",
+                    "contentType": "string",
+                    "format": "string",
+                    "verifier": "string",
+                    "verifierVersion": "string"
+                  }
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
