@@ -7,6 +7,7 @@ env:
   swaggerhub_owner: MConneely
   swaggerhub_project_name: ProjectManagement
   swaggerhub_api_name: ProjectManagementAPI 
+  swaggerhub_api_version: 1.0.0 
   
 jobs:
   install-prerequisites:
