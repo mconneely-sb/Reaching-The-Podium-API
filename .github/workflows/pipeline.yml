@@ -107,6 +107,6 @@ jobs:
                 "order": 1,
                 "content": {
                   "type": "apiUrl",
-                   "url": "'"https://$swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version/swagger.json"'"
+                   "url": "'"https://app.swaggerhub.com/apis/MConneely/Banking_API/2.0.0"'"
                     } 
                 }'
