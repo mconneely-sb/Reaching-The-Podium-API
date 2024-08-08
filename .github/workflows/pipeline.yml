@@ -97,10 +97,6 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-          #docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
-          #     -e $pact_broker_base_url \
-          #      -e ${{secrets.PACTFLOW_API_KEY}} \
-
             docker run --rm \
                -w ${PWD} \
                -v ${PWD}:${PWD} \
