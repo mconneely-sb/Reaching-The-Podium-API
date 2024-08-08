@@ -48,6 +48,13 @@ jobs:
         run: |
           swaggerhub api:validate $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version
 
+  build-and-run-api-service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and run api
+        run: |
+          echo API built and running
+          
   run-functional-tests-readyapi:
     runs-on: ubuntu-latest
     needs: validate-api-on-swaggerhub
@@ -112,7 +119,7 @@ jobs:
                     "format": "string",
                     "verifier": "string",
                     "verifierVersion": "string"
-                  }
+                  }'
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
