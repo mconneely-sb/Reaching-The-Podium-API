@@ -82,9 +82,13 @@ jobs:
     needs: set-api-to-published-on-swaggerhub
     steps:
       - name: Install SwaggerHub CLI
+        run: |
+           npm install swaggerhub-cli -g
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
     needs: set-api-to-published-on-swaggerhub
     steps:
-      - name: Install SwaggerHub CLI      
+      - name: Install SwaggerHub CLI
+        run: |
+           npm install swaggerhub-cli -g
