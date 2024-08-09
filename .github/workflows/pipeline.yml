@@ -116,7 +116,7 @@ jobs:
 
       - name: Publish API Contract
         run: |
-         docker run --rm -v /${PWD}:/opt -w /opt -e https://mconneely-sb.pactflow.io -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:latest pactflow publish-provider-contract \
+         docker run --rm -v /${PWD}:/opt -w /opt pactfoundation/pact-cli:latest pactflow publish-provider-contract \
           MConneely-AutoMockAPI.yaml \
           --broker-base-url https://mconneely-sb.pactflow.io \
           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
