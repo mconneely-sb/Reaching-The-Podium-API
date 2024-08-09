@@ -117,7 +117,7 @@ jobs:
           MConneely-AutoMockAPI.yaml \
           --broker-base-url https://mconneely-sb.pactflow.io \
           --provider pactflow-example-provider-podium \
-          --provider-app-version 3a0994c \
+          --provider-app-version 3a0994cr \
           --branch test-pactflow-command \
           --content-type application/yaml \
           --verification-results TEST-Test_Suite_1.xml \
