@@ -43,6 +43,7 @@
     <con:setting id="4b655c25-e84a-4e14-9538-31ba8b72b046fileName">Payee-API-Project-readyapi-project</con:setting>
     <con:setting id="WsdlSettings@cache-wsdls">true</con:setting>
   </con:settings>
+  <con:requirements/>
   <con:properties/>
   <con:wssContainer/>
   <con:databaseConnectionContainer/>

@@ -4,6 +4,14 @@
   <con:settings>
     <con:setting id="fb47aad8-3a85-4fee-9e8a-cfa44cb75ca4fileName">Test-Case</con:setting>
   </con:settings>
+  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner" id="356f46ff-9565-4083-957a-d6271a5842d6">
+    <con:settings/>
+    <con:config>
+      <url>localhost</url>
+      <server>Payees API Virtual Service</server>
+      <action>run</action>
+    </con:config>
+  </con:testStep>
   <con:testStep type="datasource" name="Data Source" id="1aa14ed1-63b5-4e59-b82a-3dbace9cc34c">
     <con:settings/>
     <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:DataSourceStep">
@@ -40,6 +48,11 @@
         <con:endpoint>http://localhost:8088</con:endpoint>
         <con:request/>
         <con:originalUri>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0/payee/</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="54ebeea0-09a4-43d6-8225-ae2404d8cc39" name="Response SLA">
+          <con:configuration>
+            <SLA>5000</SLA>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -58,12 +71,18 @@
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
-        <con:endpoint>https://localhost:8088</con:endpoint>
+        <con:endpoint>http://localhost:8088</con:endpoint>
         <con:request>{
 	"firstName":"${Get Payee#Response#$['firstName']}",
 	"lastName":"${Get Payee#Response#$['lastName']}",
 	"accountName":"${Get Payee#Response#$['accountName']}"	
 }</con:request>
+        <con:originalUri>http://localhost/payee/9955</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="4426369b-b93c-4b43-8572-719ed8b8f7d6" name="Response SLA">
+          <con:configuration>
+            <SLA>5000</SLA>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -79,9 +98,17 @@
     <con:settings/>
     <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="Payees API" resourcePath="/payee/{payeeId}" methodName="DELETE" xsi:type="con:RestRequestStep">
       <con:restRequest name="Delete Payee" id="38dfa023-89bb-46f7-9900-bfd30062907a" mediaType="application/json" postQueryString="false">
-        <con:settings/>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
         <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
         <con:request/>
+        <con:originalUri>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0/payee/2570</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="0dae8b0d-5799-429c-8c3f-6cf057cbae12" name="Response SLA">
+          <con:configuration>
+            <SLA>5000</SLA>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -99,6 +126,14 @@
       <dataSourceStep>Data Source</dataSourceStep>
       <targetStep>Get Payee</targetStep>
       <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner 2" id="602b5855-7911-47dd-a0eb-cfbb5a64ddbe">
+    <con:settings/>
+    <con:config>
+      <url>localhost</url>
+      <server>Payees API Virtual Service</server>
+      <action>stop</action>
     </con:config>
   </con:testStep>
   <con:properties/>
