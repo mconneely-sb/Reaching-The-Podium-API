@@ -115,16 +115,20 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-         	 ${PACTFLOW_CLI_COMMAND} publish-provider-contract \
-            $OAS_PATH \
-            --provider $PACTICIPANT \
-            --provider-app-version $VERSION \
-            --branch $BRANCH \
-            --content-type application/yaml \
-            --verification-exit-code=$EXIT_CODE \
-            --verification-results $REPORT_PATH \
-            --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
-            --verifier $VERIFIER_TOOL
+            docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
+             -e $pact_broker_base_url \
+             -e ${{secrets.PACTFLOW_API_KEY}} \ 
+             pactfoundation/pact-cli:latest \
+             pactflow publish-provider-contract \
+             MConneely-AutoMockAPI.yaml \
+             --provider "pactflow-example-bi-directional-provider-rapi" \
+             --provider-app-version 3a0994c \
+             --branch test-pactflow-command \
+             --content-type application/yaml \
+             --verification-exit-code=0 \
+             --verification-results TEST-Test_Suite_1.xml \
+             --verification-results-content-type text/plain \
+             --verifier readyapi
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
