@@ -107,6 +107,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: set-api-to-published-on-swaggerhub
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Install Pact CLI
         run: |
           docker pull pactfoundation/pact-cli:latest
@@ -114,13 +117,13 @@ jobs:
       - name: Publish API Contract
         run: |
          docker run --rm -v /${PWD}:/opt -w /opt -e https://mconneely-sb.pactflow.io -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:latest pactflow publish-provider-contract \
-          ${{ github.workspace }}/MConneely-AutoMockAPI.yaml \
+          MConneely-AutoMockAPI.yaml \
           --broker-base-url https://mconneely-sb.pactflow.io \
           --provider pactflow-example-provider-podium \
           --provider-app-version 3a0994cr \
           --branch test-pactflow-command \
           --content-type application/yaml \
-          --verification-results ${{ github.workspace }}/TEST-Test_Suite_1.xml \
+          --verification-results TEST-Test_Suite_1.xml \
           --verification-results-content-type text/xml \
           --verifier readyapi
       
