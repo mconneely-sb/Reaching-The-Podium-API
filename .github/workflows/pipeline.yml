@@ -5,9 +5,9 @@ on:
  
 env:
   swaggerhub_owner: MConneely
-  swaggerhub_project_name: ProjectManagement
-  swaggerhub_api_name: ProjectManagementAPI 
-  swaggerhub_api_version: 1.0.0 
+  swaggerhub_project_name: Reaching_The_Podium
+  swaggerhub_api_name: payees-api 
+  swaggerhub_api_version: 1.2.0 
   pact_broker_base_url: https://mconneely-sb.pactflow.io
   
 jobs:
@@ -46,6 +46,7 @@ jobs:
 
   build-and-run-api-service:
     runs-on: ubuntu-latest
+    needs: validate-api-on-swaggerhub
     steps:
       - name: Build and run api
         run: |
@@ -53,20 +54,20 @@ jobs:
           
   run-functional-tests-readyapi:
     runs-on: ubuntu-latest
-    needs: validate-api-on-swaggerhub
+    needs: build-and-run-api-service
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Download ReadyAPI
         run: |
-          wget "https://dl.eviware.com/ready-api/3.53.0/ReadyAPI-x64-3.53.0.sh"
+          wget "https://dl.eviware.com/ready-api/3.54.0/ReadyAPI-x64-3.54.0.sh"
 
       - name: Make file executable
-        run: chmod +x ${{ github.workspace }}/ReadyAPI-x64-3.53.0.sh
+        run: chmod +x ${{ github.workspace }}/ReadyAPI-x64-3.54.0.sh
 
       - name: Install ReadyAPI
-        run: sudo sh ${{ github.workspace }}/ReadyAPI-x64-3.53.0.sh -q
+        run: sudo sh ${{ github.workspace }}/ReadyAPI-x64-3.54.0.sh -q
 
       #- name: Run Tests
       #  run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{secrets.SLM_ACCESSKEY}} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
@@ -128,6 +129,6 @@ jobs:
                 "order": 1,
                 "content": {
                   "type": "apiUrl",
-                   "url": "https://api.swaggerhub.com/apis/MConneely/Banking_API/2.0.0/swagger.json"
+                   "url": "https://api.swaggerhub.com/apis/MConneely/payees-api/1.2.0/swagger.json"
                     } 
                 }'
