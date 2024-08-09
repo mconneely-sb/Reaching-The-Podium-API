@@ -42,7 +42,7 @@ jobs:
         env:
           SWAGGERHUB_API_KEY: ${{secrets.SWAGGERHUB_API_KEY}}      
         run: |
-          swaggerhub api:validate $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version
+          swaggerhub api:validate $swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version -c
 
   build-and-run-api-service:
     runs-on: ubuntu-latest
