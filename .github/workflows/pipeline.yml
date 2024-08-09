@@ -115,16 +115,16 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-         	${PACTFLOW_CLI_COMMAND} publish-provider-contract \
-           $OAS_PATH \
-           --provider $PACTICIPANT \
-           --provider-app-version $VERSION \
-           --branch $BRANCH \
-           --content-type application/yaml \
-           --verification-exit-code=$EXIT_CODE \
-           --verification-results $REPORT_PATH \
-           --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
-           --verifier $VERIFIER_TOOL
+         	 ${PACTFLOW_CLI_COMMAND} publish-provider-contract \
+            $OAS_PATH \
+            --provider $PACTICIPANT \
+            --provider-app-version $VERSION \
+            --branch $BRANCH \
+            --content-type application/yaml \
+            --verification-exit-code=$EXIT_CODE \
+            --verification-results $REPORT_PATH \
+            --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
+            --verifier $VERIFIER_TOOL
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
