@@ -10,7 +10,21 @@ env:
   swaggerhub_api_version: 1.0.0 
   swaggerhub_api_key: ${{secrets.SWAGGERHUB_API_KEY}}
   slm_access_key:  ${{secrets.SLM_ACCESSKEY}} 
-  pact_broker_base_url: https://mconneely-sb.pactflow.io
+  PACT_BROKER_BASE_URL: https://mconneely-sb.pactflow.io
+  PACT_CLI_DOCKER_VERSION: latest
+  PACT_CLI_VERSION: latest
+  PACT_CLI_STANDALONE_VERSION: 1.89.00
+  PACT_CLI_DOCKER_RUN_COMMAND: ocker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}
+  PACT_BROKER_COMMAND: pact-broker
+  PACTFLOW_CLI_COMMAND: pactflow
+  PACTICIPANT: "pactflow-example-provider-podium"
+  VERSION: $(shell npx -y absolute-version)
+  BRANCH: $(shell git rev-parse --abbrev-ref HEAD)
+  OAS_PATH: ${{ github.workspace }}/MConneely-AutoMockAPI.yaml
+  REPORT_PATH: ${{ github.workspace }}/TEST-Test_Suite_1.xml
+  REPORT_FILE_CONTENT_TYPE: text/xml
+
+  
 jobs:
   install-prerequisites:
     runs-on: ubuntu-latest
@@ -101,16 +115,16 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-          docker run --rm \
-            -w /opt/pact \
-            -v ${PWD}:/opt/pact \
-            -e https://mconneely-sb.pactflow.io \
-            -e kf0aIUZpKwJYKD7B-5O6VQ \
-            pactfoundation/pact-cli:latest pactflow publish-provider-contract MConneely-AutoMockAPI.yaml \
-            --provider "pact-provider-poc" \
-            --provider-app-version 3a0994c \
-            --branch master \
-            --content-type application/yaml
+         	${PACTFLOW_CLI_COMMAND} publish-provider-contract \
+           $OAS_PATH \
+           --provider $PACTICIPANT \
+           --provider-app-version $VERSION \
+           --branch $BRANCH \
+           --content-type application/yaml \
+           --verification-exit-code=$EXIT_CODE \
+           --verification-results $REPORT_PATH \
+           --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
+           --verifier $VERIFIER_TOOL
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
