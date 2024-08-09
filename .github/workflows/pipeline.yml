@@ -14,7 +14,7 @@ env:
   PACT_CLI_DOCKER_VERSION: latest
   PACT_CLI_VERSION: latest
   PACT_CLI_STANDALONE_VERSION: 1.89.00
-  PACT_CLI_DOCKER_RUN_COMMAND: ocker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}
+  PACT_CLI_DOCKER_RUN_COMMAND: docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}
   PACT_BROKER_COMMAND: pact-broker
   PACTFLOW_CLI_COMMAND: pactflow
   PACTICIPANT: "pactflow-example-provider-podium"
@@ -115,20 +115,16 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-            docker run --rm -v /${PWD}:/${PWD} -w ${PWD} \
-             -e $pact_broker_base_url \
-             -e ${{secrets.PACTFLOW_API_KEY}} \ 
-             pactfoundation/pact-cli:latest \
-             pactflow publish-provider-contract \
-             MConneely-AutoMockAPI.yaml \
-             --provider "pactflow-example-bi-directional-provider-rapi" \
-             --provider-app-version 3a0994c \
-             --branch test-pactflow-command \
-             --content-type application/yaml \
-             --verification-exit-code=0 \
-             --verification-results TEST-Test_Suite_1.xml \
-             --verification-results-content-type text/plain \
-             --verifier readyapi
+         $PACTFLOW_CLI_COMMAND publish-provider-contract \
+          $OAS_PATH \
+          --provider $PACTICIPANT \
+          --provider-app-version $VERSION \
+          --branch $BRANCH \
+          --content-type application/yaml \
+          --verification-exit-code=$EXIT_CODE \
+          --verification-results $REPORT_PATH \
+          --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
+          --verifier $VERIFIER_TOOL
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
