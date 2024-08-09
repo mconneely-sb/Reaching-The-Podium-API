@@ -124,6 +124,7 @@ jobs:
           --provider-app-version 3a0994cr \
           --branch test-pactflow-command \
           --content-type application/yaml \
+          --verification-exit-code=0 \
           --verification-results TEST-Test_Suite_1.xml \
           --verification-results-content-type text/xml \
           --verifier readyapi
