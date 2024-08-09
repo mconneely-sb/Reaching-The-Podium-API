@@ -10,20 +10,7 @@ env:
   swaggerhub_api_version: 1.0.0 
   swaggerhub_api_key: ${{secrets.SWAGGERHUB_API_KEY}}
   slm_access_key:  ${{secrets.SLM_ACCESSKEY}} 
-  PACT_BROKER_BASE_URL: "https://mconneely-sb.pactflow.io"
-  PACT_CLI_DOCKER_VERSION: latest
-  PACT_CLI_VERSION: latest
-  PACT_CLI_STANDALONE_VERSION: 1.89.00
-  # PACT_CLI_DOCKER_RUN_COMMAND: docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}
-  PACT_BROKER_COMMAND: pact-broker
-  PACTFLOW_CLI_COMMAND: pactflow
-  PACTICIPANT: "pactflow-example-provider-podium"
-  VERSION: $(shell npx -y absolute-version)
-  BRANCH: $(shell git rev-parse --abbrev-ref HEAD)
-  OAS_PATH: ${{ github.workspace }}/MConneely-AutoMockAPI.yaml
-  REPORT_PATH: ${{ github.workspace }}/TEST-Test_Suite_1.xml
-  REPORT_FILE_CONTENT_TYPE: text/xml
-
+  pact_broker_base_url: https://mconneely-sb.pactflow.io
   
 jobs:
   install-prerequisites:
@@ -118,11 +105,11 @@ jobs:
         run: |
          docker run --rm -v /${PWD}:/opt -w /opt pactfoundation/pact-cli:latest pactflow publish-provider-contract \
           MConneely-AutoMockAPI.yaml \
-          --broker-base-url https://mconneely-sb.pactflow.io \
+          --broker-base-url $pact_broker_base_url \
           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
-          --provider pactflow-example-provider-podium \
+          --provider podium-provider-payee \
           --provider-app-version 3a0994cr \
-          --branch test-pactflow-command \
+          --branch main \
           --content-type application/yaml \
           --verification-exit-code=0 \
           --verification-results TEST-Test_Suite_1.xml \
