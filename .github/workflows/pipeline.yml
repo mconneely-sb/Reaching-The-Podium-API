@@ -109,7 +109,7 @@ jobs:
     steps:
       - name: Install Pact CLI
         run: |
-          docker pull pactfoundation/pact-cli:0.50.0.28
+          docker pull pactfoundation/pact-cli:latest
 
       - name: Publish API Contract
         env:
