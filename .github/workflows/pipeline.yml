@@ -119,7 +119,7 @@ jobs:
          docker run --rm -v /${PWD}:/opt -w /opt -e https://mconneely-sb.pactflow.io -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:latest pactflow publish-provider-contract \
           MConneely-AutoMockAPI.yaml \
           --broker-base-url https://mconneely-sb.pactflow.io \
-          --broker-token ${{secrets.PACTFLOW_API_KEY}}
+          --broker-token ${{secrets.PACTFLOW_API_KEY}} \
           --provider pactflow-example-provider-podium \
           --provider-app-version 3a0994cr \
           --branch test-pactflow-command \
