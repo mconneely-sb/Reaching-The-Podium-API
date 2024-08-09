@@ -113,15 +113,15 @@ jobs:
 
       - name: Publish API Contract
         run: |
-         docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION} pactflow publish-provider-contract \
-          $OAS_PATH \
-          --provider $PACTICIPANT \
-          --provider-app-version $VERSION \
-          --branch $BRANCH \
+         docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e https://mconneely-sb.pactflow.io -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:latest pactflow publish-provider-contract \
+          ${{ github.workspace }}/MConneely-AutoMockAPI.yaml \
+          --provider pactflow-example-provider-podium \
+          --provider-app-version 3a0994c \
+          --branch test-pactflow-command \
           --content-type application/yaml \
-          --verification-results $REPORT_PATH \
-          --verification-results-content-type $REPORT_FILE_CONTENT_TYPE \
-          --verifier $VERIFIER_TOOL
+          --verification-results ${{ github.workspace }}/TEST-Test_Suite_1.xml \
+          --verification-results-content-type text/xml \
+          --verifier readyapi
       
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
