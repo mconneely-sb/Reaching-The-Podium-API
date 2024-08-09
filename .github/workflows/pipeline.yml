@@ -69,8 +69,8 @@ jobs:
       - name: Install ReadyAPI
         run: sudo sh ${{ github.workspace }}/ReadyAPI-x64-3.54.0.sh -q
 
-      #- name: Run Tests
-      #  run: sudo sh /opt/SmartBear/ReadyAPI-3.53.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{secrets.SLM_ACCESSKEY}} ${{ github.workspace }}/PetStoreForAzurePipeline-readyapi-project.xml
+      - name: Run Functional Tests in ReadyAPI
+        run: sudo sh /opt/SmartBear/ReadyAPI-3.54.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{secrets.SLM_ACCESSKEY}} ${{ github.workspace }}
 
 
   set-api-to-published-on-swaggerhub:
@@ -100,7 +100,7 @@ jobs:
       - name: Publish API Contract
         run: |
          docker run --rm -v /${PWD}:/opt -w /opt pactfoundation/pact-cli:latest pactflow publish-provider-contract \
-          MConneely-AutoMockAPI.yaml \
+          oas/Payees_API-1.2.0 \
           --broker-base-url $pact_broker_base_url \
           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
           --provider podium-provider-payee \
