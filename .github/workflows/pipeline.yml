@@ -10,7 +10,7 @@ env:
   swaggerhub_api_version: 1.0.0 
   swaggerhub_api_key: ${{secrets.SWAGGERHUB_API_KEY}}
   slm_access_key:  ${{secrets.SLM_ACCESSKEY}} 
-  PACT_BROKER_BASE_URL: https://mconneely-sb.pactflow.io
+  PACT_BROKER_BASE_URL: "https://mconneely-sb.pactflow.io"
   PACT_CLI_DOCKER_VERSION: latest
   PACT_CLI_VERSION: latest
   PACT_CLI_STANDALONE_VERSION: 1.89.00
@@ -121,7 +121,6 @@ jobs:
           --provider-app-version $VERSION \
           --branch $BRANCH \
           --content-type application/yaml \
-          --verification-exit-code 0 \
           --verification-results $REPORT_PATH \
           --verification-results-content-type $REPORT_FILE_CONTENT_TYPE\
           --verifier $VERIFIER_TOOL
