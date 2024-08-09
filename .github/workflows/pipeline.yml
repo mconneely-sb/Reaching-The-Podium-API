@@ -14,7 +14,7 @@ env:
   PACT_CLI_DOCKER_VERSION: latest
   PACT_CLI_VERSION: latest
   PACT_CLI_STANDALONE_VERSION: 1.89.00
-  PACT_CLI_DOCKER_RUN_COMMAND: docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}
+  # PACT_CLI_DOCKER_RUN_COMMAND: docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION}
   PACT_BROKER_COMMAND: pact-broker
   PACTFLOW_CLI_COMMAND: pactflow
   PACTICIPANT: "pactflow-example-provider-podium"
@@ -115,7 +115,7 @@ jobs:
         env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
         run: |
-         $PACTFLOW_CLI_COMMAND publish-provider-contract \
+         docker run --rm -v /${PWD}:/${PWD} -w ${PWD} -e $PACT_BROKER_BASE_URL -e ${{secrets.PACTFLOW_API_KEY}} pactfoundation/pact-cli:${PACT_CLI_DOCKER_VERSION} publish-provider-contract \
           $OAS_PATH \
           --provider $PACTICIPANT \
           --provider-app-version $VERSION \
