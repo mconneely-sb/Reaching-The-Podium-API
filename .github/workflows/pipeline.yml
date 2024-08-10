@@ -101,9 +101,9 @@ jobs:
       - name: Can I Deploy
         run: |
          docker run --rm -w /opt -v ${PWD}:/opt pactfoundation/pact-cli:latest pact-broker can-i-deploy \
-            --broker-base-url $pact_broker_base_url \
+           --broker-base-url $pact_broker_base_url \
            --broker-token ${{secrets.PACTFLOW_API_KEY}} \
-           --pacticipantpact-payee-consumer `
+           --pacticipant pact-payee-consumer `
            --version 3a0994cr `
            --to-environment production
           
