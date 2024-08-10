@@ -105,6 +105,7 @@ jobs:
            --broker-token ${{secrets.PACTFLOW_API_KEY}} \
          	--pacticipant podium-provider-payee \
          	--version 3a0994cr \
+          --branch main \
          	--to-environment production \
          	--retry-while-unknown 6 \
          	--retry-interval 10
