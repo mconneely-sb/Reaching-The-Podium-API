@@ -103,9 +103,11 @@ jobs:
          docker run --rm -w /opt -v ${PWD}:/opt pactfoundation/pact-cli:latest pact-broker can-i-deploy \
            --broker-base-url $pact_broker_base_url \
            --broker-token ${{secrets.PACTFLOW_API_KEY}} \
-           --pacticipant pact-payee-consumer `
-           --version 3a0994cr `
-           --to-environment production
+         	--pacticipant podium-provider-payee \
+         	--version 3a0994cr \
+         	--to-environment production \
+         	--retry-while-unknown 6 \
+         	--retry-interval 10
           
   set-api-to-published-on-swaggerhub:
     runs-on: ubuntu-latest
