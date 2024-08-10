@@ -48,9 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: validate-api-on-swaggerhub
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Build and run api
         run: |
-          echo API built and running
+          sudo sh build_and_run_api_service.sh
           
   run-functional-tests-readyapi:
     runs-on: ubuntu-latest
