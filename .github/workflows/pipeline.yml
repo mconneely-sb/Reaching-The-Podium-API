@@ -104,7 +104,7 @@ jobs:
            --broker-base-url $pact_broker_base_url \
            --broker-token ${{secrets.PACTFLOW_API_KEY}} \
          	--pacticipant podium-provider-payee \
-         	--version 3a0994cr \
+         	--latest \
           --branch main \
          	--to-environment production \
          	--retry-while-unknown 6 \
