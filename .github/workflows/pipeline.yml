@@ -98,18 +98,6 @@ jobs:
           --verification-results-content-type text/xml \
           --verifier readyapi
           
-      - name: Can I Deploy
-        run: |
-         docker run --rm -w /opt -v ${PWD}:/opt pactfoundation/pact-cli:latest pact-broker can-i-deploy \
-           --broker-base-url $pact_broker_base_url \
-           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
-         	--pacticipant podium-provider-payee \
-         	--latest \
-          --branch main \
-         	--to-environment production \
-         	--retry-while-unknown 6 \
-         	--retry-interval 10
-          
   can-I-deploy-api:
     runs-on: ubuntu-latest
     needs: published-openapi-to-pactflow
@@ -148,7 +136,7 @@ jobs:
          
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
-    needs: set-api-to-published-on-swaggerhub
+    needs: published-openapi-to-pactflow
     steps:
     - name: Link an API
       env:
