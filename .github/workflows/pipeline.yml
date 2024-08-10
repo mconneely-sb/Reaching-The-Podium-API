@@ -136,7 +136,7 @@ jobs:
          
   published-api-to-swaggerhub-portal:
     runs-on: ubuntu-latest
-    needs: published-openapi-to-pactflow
+    needs: set-api-to-published-on-swaggerhub
     steps:
     - name: Link an API
       env:
