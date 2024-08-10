@@ -110,6 +110,29 @@ jobs:
          	--retry-while-unknown 6 \
          	--retry-interval 10
           
+  can-I-deploy-api:
+    runs-on: ubuntu-latest
+    needs: published-openapi-to-pactflow
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Install Pact CLI
+        run: |
+          docker pull pactfoundation/pact-cli:latest
+          
+      - name: Can I Deploy
+        run: |
+         docker run --rm -w /opt -v ${PWD}:/opt pactfoundation/pact-cli:latest pact-broker can-i-deploy \
+           --broker-base-url $pact_broker_base_url \
+           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
+         	--pacticipant podium-provider-payee \
+         	--latest \
+          --branch main \
+         	--to-environment production \
+         	--retry-while-unknown 6 \
+         	--retry-interval 10
+          
   set-api-to-published-on-swaggerhub:
     runs-on: ubuntu-latest
     needs: published-openapi-to-pactflow
