@@ -1,4 +1,4 @@
-name: API-Podium-Pipeline
+name: API-Podium-Gold-Level-Pipeline
 
 on:
  workflow_dispatch:
