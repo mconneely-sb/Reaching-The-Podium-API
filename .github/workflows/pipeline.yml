@@ -92,7 +92,7 @@ jobs:
           --broker-base-url $pact_broker_base_url \
           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
           --provider podium-provider-payee \
-          --provider-app-version 3a0994cr \
+          --provider-app-version 3a0994csr \
           --branch main \
           --content-type application/yaml \
           --verification-exit-code=0 \
