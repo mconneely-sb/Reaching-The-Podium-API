@@ -72,7 +72,9 @@ jobs:
         run: sudo sh ${{ github.workspace }}/ReadyAPI-x64-3.54.0.sh -q
 
       - name: Run Functional Tests in ReadyAPI
-        run: sudo sh /opt/SmartBear/ReadyAPI-3.54.0/bin/testrunner.sh -r -a -j -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" -accessKey ${{secrets.SLM_ACCESSKEY}} ${{ github.workspace }}
+        run: sudo sh /opt/SmartBear/ReadyAPI-3.54.0/bin/testrunner.sh -r -a -j 
+          -f${{ github.workspace }} "-RJUnit-Style HTML Report" -FXML "-EDefault environment" 
+          -accessKey ${{secrets.SLM_ACCESSKEY}} ${{ github.workspace }}
 
   published-openapi-to-pactflow:
     runs-on: ubuntu-latest
