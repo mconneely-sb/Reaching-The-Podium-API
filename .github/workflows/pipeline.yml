@@ -93,9 +93,9 @@ jobs:
           oas/Payees_API-1.2.0 \
           --broker-base-url $pact_broker_base_url \
           --broker-token ${{secrets.PACTFLOW_API_KEY}} \
-          --provider podium-provider-payee \
-          --provider-app-version 3a09947r \
-          --branch feat/v1.4 \
+          --provider podium-provider-payee-v2 \
+          --provider-app-version 3a09947rv2 \
+          --branch main \
           --content-type application/yaml \
           --verification-exit-code=0 \
           --verification-results TEST-Test_Suite_1.xml \
