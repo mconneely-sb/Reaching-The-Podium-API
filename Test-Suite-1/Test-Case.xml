@@ -48,7 +48,7 @@
     <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="GET" xsi:type="con:RestRequestStep">
       <con:restRequest name="Get Payee" id="a390a7f7-3c7f-438f-884c-74d293e26bf5" mediaType="application/json">
         <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="token" value="" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="token" value="${#Project#projectToken}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8088</con:endpoint>
         <con:request/>
