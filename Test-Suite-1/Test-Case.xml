@@ -48,7 +48,7 @@
     <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="GET" xsi:type="con:RestRequestStep">
       <con:restRequest name="Get Payee" id="a390a7f7-3c7f-438f-884c-74d293e26bf5" mediaType="application/json">
         <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="token" value="" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
         </con:settings>
         <con:endpoint>http://localhost:8088</con:endpoint>
         <con:request/>
@@ -139,47 +139,6 @@
       <url>localhost</url>
       <server>Payees API Virtual Service</server>
       <action>stop</action>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="restrequest" name="Get User 2" id="12668aac-0888-4a7b-832d-748b78943bf7">
-    <con:settings/>
-    <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="GET" xsi:type="con:RestRequestStep">
-      <con:restRequest name="Get User 2" id="a390a7f7-3c7f-438f-884c-74d293e26bf5" mediaType="application/json">
-        <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-        </con:settings>
-        <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
-        <con:request/>
-        <con:originalUri>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0/payee/1</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="2b358cce-de4c-447d-ab6d-800f8d82c4cb" name="Valid HTTP Status Codes">
-          <con:settings/>
-          <con:configuration>
-            <codes>200</codes>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="Response SLA Assertion" id="59b4209e-26a9-4109-b4ce-87f9eb9a59e4" name="Response SLA">
-          <con:configuration>
-            <SLA>200</SLA>
-          </con:configuration>
-        </con:assertion>
-        <con:assertion type="JsonPath Match" id="8eaaf178-6e1c-45ad-a8ba-ffedcfc5947b" name="Match content of [firstName]">
-          <con:configuration>
-            <path>$['firstName']</path>
-            <content>"Joe Bloggs"</content>
-            <allowWildcards>false</allowWildcards>
-            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-            <ignoreComments>false</ignoreComments>
-          </con:configuration>
-        </con:assertion>
-        <con:credentials>
-          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-          <con:authType>No Authorization</con:authType>
-        </con:credentials>
-        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:parameters>
-          <con:entry key="payeeId" value="1"/>
-        </con:parameters>
-      </con:restRequest>
     </con:config>
   </con:testStep>
   <con:properties/>
