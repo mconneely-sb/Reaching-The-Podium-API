@@ -46,16 +46,6 @@
       <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Groovy Script" id="852cfcae-31b8-4d41-950d-c4910eecfe29">
-    <con:settings/>
-    <con:config>
-      <script>def name = context.expand( '${Data Source#Name}' )
-
-log.info(name)
-
-context.</script>
-    </con:config>
-  </con:testStep>
   <con:testStep type="restrequest" name="Get Payee" id="91792b58-2418-4045-ac27-b2eb4be0efce">
     <con:settings/>
     <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="GET" xsi:type="con:RestRequestStep">
