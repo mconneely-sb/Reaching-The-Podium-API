@@ -15,4 +15,18 @@
     <con:endpoint>http://localhost:8088/</con:endpoint>
     <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
   </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:interface>

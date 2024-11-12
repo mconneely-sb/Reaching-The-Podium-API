@@ -9,7 +9,7 @@
     <con:setting id="ErrorDetails">true</con:setting>
     <con:setting id="IncludeCoverage">true</con:setting>
   </con:settings>
-  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner" id="356f46ff-9565-4083-957a-d6271a5842d6">
+  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner" id="356f46ff-9565-4083-957a-d6271a5842d6" disabled="true">
     <con:settings/>
     <con:config>
       <url>localhost</url>
@@ -20,27 +20,40 @@
   <con:testStep type="datasource" name="Data Source" id="1aa14ed1-63b5-4e59-b82a-3dbace9cc34c">
     <con:settings/>
     <con:config xsi:type="con:DataSourceStep">
-      <con:dataSource type="Data Generator">
+      <con:dataSource type="Excel">
         <con:configuration>
-          <generatedDataCount>10</generatedDataCount>
-          <generatorsTotalNumber>1</generatorsTotalNumber>
-          <lastSelectedProperty>-1</lastSelectedProperty>
-          <GeneratorType0>INT</GeneratorType0>
-          <PropertyName0>payeeId</PropertyName0>
-          <repetitionCountpayeeId>0</repetitionCountpayeeId>
-          <repeatValuespayeeId>false</repeatValuespayeeId>
-          <IntegerDataGeneratorMinValuepayeeId>1000</IntegerDataGeneratorMinValuepayeeId>
-          <IntegerDataGeneratorMaxValuepayeeId>10000</IntegerDataGeneratorMaxValuepayeeId>
-          <IntegerDataGeneratorStepValuepayeeId>1</IntegerDataGeneratorStepValuepayeeId>
-          <IntegerDataGeneratorConsequentValuespayeeId>false</IntegerDataGeneratorConsequentValuespayeeId>
-          <escapeSpaceSequence/>
+          <file>C:/Users/mairtin.conneely/OneDrive - SmartBear Software, Inc/Documents/Work/Excel/tst/${#Project#dataSourceName}.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
         </con:configuration>
       </con:dataSource>
       <con:shared>true</con:shared>
       <con:restartShared>true</con:restartShared>
-      <con:property>payeeId</con:property>
+      <con:property>Id</con:property>
+      <con:property>Name</con:property>
+      <con:property>DateCreated</con:property>
+      <con:property>accountType</con:property>
+      <con:startRow>1</con:startRow>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
       <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
       <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="852cfcae-31b8-4d41-950d-c4910eecfe29">
+    <con:settings/>
+    <con:config>
+      <script>def name = context.expand( '${Data Source#Name}' )
+
+log.info(name)
+
+context.</script>
     </con:config>
   </con:testStep>
   <con:testStep type="restrequest" name="Get Payee" id="91792b58-2418-4045-ac27-b2eb4be0efce">
@@ -64,8 +77,22 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="payeeId" value="${Data Source#payeeId}"/>
+          <con:entry key="payeeId" value="${Data Source#Id}"/>
         </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
@@ -94,8 +121,22 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="payeeId" value="${Data Source#payeeId}"/>
+          <con:entry key="payeeId" value="${Data Source#Id}"/>
         </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
@@ -120,8 +161,22 @@
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
         <con:parameters>
-          <con:entry key="payeeId" value="${Data Source#payeeId}"/>
+          <con:entry key="payeeId" value="${Data Source#Id}"/>
         </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
       </con:restRequest>
     </con:config>
   </con:testStep>
@@ -129,11 +184,11 @@
     <con:settings/>
     <con:config>
       <dataSourceStep>Data Source</dataSourceStep>
-      <targetStep>Get Payee</targetStep>
-      <discardResults>true</discardResults>
+      <targetStep>Groovy Script</targetStep>
+      <discardResults>false</discardResults>
     </con:config>
   </con:testStep>
-  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner 2" id="602b5855-7911-47dd-a0eb-cfbb5a64ddbe">
+  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner 2" id="602b5855-7911-47dd-a0eb-cfbb5a64ddbe" disabled="true">
     <con:settings/>
     <con:config>
       <url>localhost</url>
@@ -143,4 +198,18 @@
   </con:testStep>
   <con:properties/>
   <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:testCase>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="con:RestService" id="ea44907c-5b00-402a-a511-d1a3c6299605" name="Authentication API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://api.swaggerhub.com/apis/MConneely/AuthenticationAPI/1.0.0">
+  <con:description id="56252834-f245-46c0-8706-33771a34d23f">API for Authentication - Log in and Log out</con:description>
+  <con:settings id="fbfc61ee-ee21-4b58-8ca0-3cbdc98d6eb8">
+    <con:setting id="ea44907c-5b00-402a-a511-d1a3c6299605fileName">Authentication-API</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://api.swaggerhub.com/apis/MConneely/AuthenticationAPI/1.0.0">
+    <con:part>
+      <con:url>https://api.swaggerhub.com/apis/MConneely/AuthenticationAPI/1.0.0</con:url>
+      <con:content>{"openapi":"3.0.0","info":{"title":"Authentication API","description":"API for Authentication - Log in and Log out","version":"1.0.0"},"servers":[{"description":"SwaggerHub API Auto Mocking","url":"https://virtserver.swaggerhub.com/MConneely/AuthenticationAPI/1.0.0"}],"paths":{"/login":{"post":{"summary":"User login","requestBody":{"required":true,"content":{"application/json":{"example":{"username":"user123","password":"password123"}}}},"responses":{"200":{"description":"Login successful","content":{"application/json":{"example":{"message":"Login successful","token":"eydsf435n43bnm435435bm435b34mnb435345d34"}}}}}}},"/logout":{"post":{"summary":"User logout","responses":{"200":{"description":"Logout successful","content":{"application/json":{"example":{"message":"Logout successful"}}}}}}}}}</con:content>
+      <con:type>https://swagger.io/openapiv3/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://virtserver.swaggerhub.com/MConneely/AuthenticationAPI/1.0.0</con:endpoint>
+  </con:endpoints>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:interface>

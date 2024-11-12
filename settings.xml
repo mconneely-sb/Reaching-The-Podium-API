@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="4b655c25-e84a-4e14-9538-31ba8b72b046" created="3.54.0" activeEnvironment="Default environment" encryptionMode="Selected properties" name="Payee API Project" projectVersion="" updated="3.54.0" resourceRoot="" compositeProjectFormat="1.3">
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="4b655c25-e84a-4e14-9538-31ba8b72b046" created="3.54.0" activeEnvironment="Local API" encryptionMode="Not encrypted" name="Payee API Project" projectVersion="" updated="3.56.0" resourceRoot="" compositeProjectFormat="1.3">
   <con:settings>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
   <con:entry key="Settings File Password" value=""/>
@@ -42,6 +42,46 @@
 </xml-fragment>]]></con:setting>
     <con:setting id="4b655c25-e84a-4e14-9538-31ba8b72b046fileName">Payee-API-Project-readyapi-project</con:setting>
     <con:setting id="WsdlSettings@cache-wsdls">true</con:setting>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="&lt;all>"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Select test suits containing:" value="At least one tag"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Select test cases containing:" value="At least one tag"/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="C:\Program Files\SmartBear\ReadyAPI-3.54.0\bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value="${WORKSPACE}"/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+    <con:setting id="ProjectSettings@shadowPassword">projectToken</con:setting>
   </con:settings>
   <con:requirements/>
   <con:properties>
@@ -49,10 +89,14 @@
       <con:name>projectName</con:name>
       <con:value>Test</con:value>
     </con:property>
-    <con:property encrypted="true">
+    <con:property encrypted="false">
       <con:name>projectToken</con:name>
-      <con:value xsi:nil="true"/>
-      <con:encryptedContent>b0RhY1JnYXd2bmJhT0ZsZWt1bTdnWEpYUGpSWi8vQkhibjc1d0k5eXBmWVNPdHJJSFczRmF3bGJwK1JOOEhabzhkdFdHR0hFYU1GNg0KT3hSZzlaYUpCUnJEOGVwUUdyYlRPRnM1UE00K3dMbTV5bXhJZFlVK2ZRPT0NCg==</con:encryptedContent>
+      <con:value>ey1234567890</con:value>
+      <con:encryptedContent xsi:nil="true"/>
+    </con:property>
+    <con:property>
+      <con:name>dataSourceName</con:name>
+      <con:value>accounts_v1</con:value>
     </con:property>
   </con:properties>
   <con:wssContainer/>
@@ -99,6 +143,73 @@
 // pw.close()
 // fos.close()</con:script>
   </con:eventHandlers>
+  <con:environment id="f65b90da-3355-413b-8fa1-13e17040ddd0" name="Local API" index="0">
+    <con:service type="REST" name="Payees API">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="" areGlobalProxySettingsIgnored="false">http://localhost:8091</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>projectName</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>projectToken</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>dataSourceName</con:name>
+      <con:value>accounts_v1</con:value>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="32d6d81e-06cf-48f3-93d2-820943544c7c" name="DEV" index="1">
+    <con:property>
+      <con:name>projectName</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>projectToken</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>dataSourceName</con:name>
+      <con:value/>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="bbc15548-9520-43e0-b936-6fc7f3b39708" name="QA" index="2">
+    <con:property>
+      <con:name>projectName</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>projectToken</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>dataSourceName</con:name>
+      <con:value/>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="dbd2e5a5-fafd-443e-88d2-3203312795d0" name="PRE-PROD" index="3">
+    <con:property>
+      <con:name>projectName</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>projectToken</con:name>
+      <con:value/>
+    </con:property>
+    <con:property>
+      <con:name>dataSourceName</con:name>
+      <con:value/>
+    </con:property>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
   <con:authRepository>
     <con:oAuth20AuthEntry>
       <con:name>BankingAPIScopes IMPLICIT</con:name>
@@ -110,5 +221,19 @@
       <con:scope>transfer:create transfer:read transfer:delete transfer:admin beneficiary:create beneficiary:read beneficiary:delete beneficiary:admin account:read account:admin</con:scope>
     </con:oAuth20AuthEntry>
   </con:authRepository>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
   <con:tags/>
 </con:soapui-project>

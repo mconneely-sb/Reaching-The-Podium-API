@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="/login" path="/login" id="3d093272-587d-4e61-8887-67ac882768fe">
+  <con:settings id="b6447ee7-3473-4ff4-9333-4a257774cc8e">
+    <con:setting id="3d093272-587d-4e61-8887-67ac882768fefileName">%2Flogin</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="POST" id="3d778788-2e9b-431b-9912-49b87aac697b" method="POST">
+    <con:description>User login</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:description>Login successful</con:description>
+      <con:sampleContent>{
+  "message" : "Login successful",
+  "token" : "eydsf435n43bnm435435bm435b34mnb435345d34"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "username" : "user123",
+  "password" : "password123"
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="bfe08212-91cb-49d4-8672-2abe0c178591" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://virtserver.swaggerhub.com/MConneely/AuthenticationAPI/1.0.0</con:endpoint>
+      <con:request>{\r
+  "username" : "user123",\r
+  "password" : "password123"\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

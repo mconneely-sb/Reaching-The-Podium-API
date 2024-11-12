@@ -42,7 +42,35 @@
       <con:parameters>
         <con:entry key="payeeId" value="1"/>
       </con:parameters>
+      <con:environmentSpec>
+        <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="POST" id="16505e44-b974-466d-b22d-12173bf92d63" method="POST">
     <con:description>Ability to return details of specific payees using ID's</con:description>
@@ -77,7 +105,35 @@
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
   <con:method name="DELETE" id="0e32a00d-a3d0-4dcc-b673-20d7f762d232" method="DELETE">
     <con:description>Ability to return details of specific payees using ID's</con:description>
@@ -112,6 +168,48 @@
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
     </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
   </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
 </con:resource>

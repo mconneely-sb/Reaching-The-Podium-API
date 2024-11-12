@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="7f56a962-cc18-403e-9c32-6eed544d0fc0" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case" searchProperties="true" timeout="0">
+  <con:description id="781a8b80-0fd9-481c-9964-a44653da1dae">The test case generated for the REST resource [/payee/{payeeId}] located at [/payee/{payeeId}]</con:description>
+  <con:settings>
+    <con:setting id="fb47aad8-3a85-4fee-9e8a-cfa44cb75ca4fileName">Test-Case</con:setting>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">false</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="7f56a962-cc18-403e-9c32-6eed544d0fc0fileName">Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="Login" id="8133b5e4-249b-4e9a-9986-293c014fff48">
+    <con:settings/>
+    <con:config service="Authentication API" resourcePath="/login" methodName="POST" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Login" id="bfe08212-91cb-49d4-8672-2abe0c178591" mediaType="application/json" postQueryString="false">
+        <con:settings/>
+        <con:endpoint>https://virtserver.swaggerhub.com/MConneely/AuthenticationAPI/1.0.0</con:endpoint>
+        <con:request>{\r
+  "username" : "user123",\r
+  "password" : "password123"\r
+}</con:request>
+        <con:assertion type="Valid HTTP Status Codes" id="9b2d999b-afdd-4f5c-b37c-59225ca562c4" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="7a699b2a-4e26-45d2-bf50-071459821076" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner" id="06b6d0d9-e376-4ca0-9c5d-31c9465abd98">
+    <con:settings/>
+    <con:config>
+      <url>localhost</url>
+      <server>Payees API Virtual Service</server>
+      <action>run</action>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="Data Source" id="b68247cf-8539-467f-bc00-447ebdcc3c1d">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep">
+      <con:dataSource type="Data Generator">
+        <con:configuration>
+          <generatedDataCount>10</generatedDataCount>
+          <generatorsTotalNumber>1</generatorsTotalNumber>
+          <lastSelectedProperty>-1</lastSelectedProperty>
+          <GeneratorType0>INT</GeneratorType0>
+          <PropertyName0>payeeId</PropertyName0>
+          <repetitionCountpayeeId>0</repetitionCountpayeeId>
+          <repeatValuespayeeId>false</repeatValuespayeeId>
+          <IntegerDataGeneratorMinValuepayeeId>1000</IntegerDataGeneratorMinValuepayeeId>
+          <IntegerDataGeneratorMaxValuepayeeId>10000</IntegerDataGeneratorMaxValuepayeeId>
+          <IntegerDataGeneratorStepValuepayeeId>1</IntegerDataGeneratorStepValuepayeeId>
+          <IntegerDataGeneratorConsequentValuespayeeId>false</IntegerDataGeneratorConsequentValuespayeeId>
+          <escapeSpaceSequence/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>payeeId</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Get Payee" id="6562d987-abeb-4e32-a6ab-db9f04c519e0">
+    <con:settings/>
+    <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="GET" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Get Payee" id="a390a7f7-3c7f-438f-884c-74d293e26bf5" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="token" value="${#Project#projectToken}" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8088</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0/payee/</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="54ebeea0-09a4-43d6-8225-ae2404d8cc39" name="Response SLA">
+          <con:configuration>
+            <SLA>10</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="payeeId" value="${Data Source#payeeId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Update Payee" id="6c9e0835-7c8b-4d39-97fe-11ba94358298">
+    <con:settings/>
+    <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="POST" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Update Payee" id="fb2f349c-8609-4b83-9cd1-581c5c69b596" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8088</con:endpoint>
+        <con:request>{
+	"firstName":"${Get Payee#Response#$['firstName']}",
+	"lastName":"${Get Payee#Response#$['lastName']}",
+	"accountName":"${Get Payee#Response#$['accountName']}"	
+}</con:request>
+        <con:originalUri>http://localhost/payee/9955</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="4426369b-b93c-4b43-8572-719ed8b8f7d6" name="Response SLA">
+          <con:configuration>
+            <SLA>5000</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="payeeId" value="${Data Source#payeeId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Delete Payee" id="6004e340-e2bd-4df2-8945-f703c35b0a3b">
+    <con:settings/>
+    <con:config service="Payees API" resourcePath="/payee/{payeeId}" methodName="DELETE" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Delete Payee" id="38dfa023-89bb-46f7-9900-bfd30062907a" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0/payee/2570</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="0dae8b0d-5799-429c-8c3f-6cf057cbae12" name="Response SLA">
+          <con:configuration>
+            <SLA>5000</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="payeeId" value="${Data Source#payeeId}"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Data Source Loop" id="94681cc6-3e39-44be-a92c-a3f9818342ec">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Data Source</dataSourceStep>
+      <targetStep>Get Payee</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="VirtRunnerTestStep" name="Virtual Service Runner 2" id="fad96d2f-c10d-4992-b61b-d9012534c49c">
+    <con:settings/>
+    <con:config>
+      <url>localhost</url>
+      <server>Payees API Virtual Service</server>
+      <action>stop</action>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Logout" id="35f3c9ca-45fd-4d17-bc1b-d8f6e9c1d4b2">
+    <con:settings/>
+    <con:config service="Authentication API" resourcePath="/logout" methodName="POST" xsi:type="con:RestRequestStep">
+      <con:restRequest name="Logout" id="680b8142-4fc0-4df2-866d-3b9645798415" mediaType="application/json">
+        <con:settings/>
+        <con:endpoint>https://virtserver.swaggerhub.com/MConneely/AuthenticationAPI/1.0.0</con:endpoint>
+        <con:request/>
+        <con:assertion type="Valid HTTP Status Codes" id="3cb234b3-c1b8-4afb-8b79-fc5c0c138456" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="5c2d722a-cd0a-4992-97c7-6f7b67a285e6" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="f65b90da-3355-413b-8fa1-13e17040ddd0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="32d6d81e-06cf-48f3-93d2-820943544c7c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="bbc15548-9520-43e0-b936-6fc7f3b39708">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="dbd2e5a5-fafd-443e-88d2-3203312795d0">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

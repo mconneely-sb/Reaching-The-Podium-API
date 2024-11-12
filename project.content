@@ -1,5 +1,9 @@
 Payees-API\%2Fpayee%2F%7BpayeeId%7D.xml
-Test-Suite-1\Test-Case.xml
+Authentication-API\%2Flogin.xml
+Authentication-API\%2Flogout.xml
+Payee-process---Test-Suite\Test-Case.xml
+Payee-process-with-Authentiaction---Test-Suite\Test-Case.xml
+Load-Test-1.xml
 Payees-API-Virtual-Service\%2Fpayee%2F%7BpayeeId%7D.xml
 Payees-API-Virtual-Service\%2Fpayee%2F%7BpayeeId%7D1.xml
 Payees-API-Virtual-Service\%2Fpayee%2F%7BpayeeId%7D2.xml

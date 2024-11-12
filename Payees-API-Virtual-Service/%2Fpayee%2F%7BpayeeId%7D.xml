@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:restMockAction xmlns:con="http://eviware.com/soapui/config" name="/payee/{payeeId}" method="GET" resourcePath="/payee/{payeeId}" id="3e10bb8a-7c6f-4b12-8a12-98a6e926726a">
+<con:restMockAction xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="/payee/{payeeId}" method="GET" resourcePath="/payee/{payeeId}" id="3e10bb8a-7c6f-4b12-8a12-98a6e926726a">
   <con:settings id="af276777-fb47-43b4-a394-ce4d1f0eab7f">
     <con:setting id="3e10bb8a-7c6f-4b12-8a12-98a6e926726afileName">%2Fpayee%2F%7BpayeeId%7D</con:setting>
   </con:settings>
