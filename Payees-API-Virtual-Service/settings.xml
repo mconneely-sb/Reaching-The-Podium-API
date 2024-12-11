@@ -16,4 +16,8 @@
     </con:virtError>
   </con:constraints>
   <con:headerValidator type="NONE"/>
+  <con:conditionalMatchConfiguration>
+    <con:validateSignature>true</con:validateSignature>
+    <con:validateSignatureHeaders>false</con:validateSignatureHeaders>
+  </con:conditionalMatchConfiguration>
 </con:restMockService>
