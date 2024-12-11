@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:testSuite xmlns:con="http://eviware.com/soapui/config" id="83c29f52-f0c8-43b6-88a1-baa1fbf3448d" name="Test Suite 1">
-  <con:description id="387c7864-a671-486a-beef-80b7f93783c3">The test suite generated for the REST service [Payees API]</con:description>
-  <con:settings id="265c323c-3456-4b72-a58a-e2ac5921af47">
+  <con:description id="a2a94a7c-1e8f-4b2a-ac21-aed53c7857f5">The test suite generated for the REST service [Payees API]</con:description>
+  <con:settings>
     <con:setting id="83c29f52-f0c8-43b6-88a1-baa1fbf3448dfileName">Test-Suite-1</con:setting>
   </con:settings>
   <con:runType>SEQUENTIAL</con:runType>

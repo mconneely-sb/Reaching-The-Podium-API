@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" name="/payee/{payeeId}" path="/payee/{payeeId}" id="cda557db-0b03-48c2-a291-7a6c6d0a134e">
-  <con:settings id="3584f8bb-75f7-4bf9-abe4-b0d56bdd484b">
+<con:resource xmlns:con="http://eviware.com/soapui/config" id="cda557db-0b03-48c2-a291-7a6c6d0a134e" name="/payee/{payeeId}" path="/payee/{payeeId}">
+  <con:settings id="b50d87b8-023f-4734-8567-2d1824c60d19">
     <con:setting id="cda557db-0b03-48c2-a291-7a6c6d0a134efileName">%2Fpayee%2F%7BpayeeId%7D</con:setting>
   </con:settings>
   <con:parameters/>
-  <con:method name="GET" id="400ffce8-5ac8-4d5d-b3cb-4b23c3bef9a3" method="GET">
+  <con:method id="400ffce8-5ac8-4d5d-b3cb-4b23c3bef9a3" method="GET" name="GET">
     <con:description>Ability to return details of specific payees using ID's</con:description>
     <con:settings/>
     <con:parameters>
@@ -27,7 +27,7 @@
   "bankName" : "string"
 }</con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="a390a7f7-3c7f-438f-884c-74d293e26bf5" mediaType="application/json">
+    <con:request id="a390a7f7-3c7f-438f-884c-74d293e26bf5" mediaType="application/json" name="Request 1">
       <con:settings>
         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
       </con:settings>
@@ -44,7 +44,7 @@
       </con:parameters>
     </con:request>
   </con:method>
-  <con:method name="POST" id="16505e44-b974-466d-b22d-12173bf92d63" method="POST">
+  <con:method id="16505e44-b974-466d-b22d-12173bf92d63" method="POST" name="POST">
     <con:description>Ability to return details of specific payees using ID's</con:description>
     <con:settings/>
     <con:parameters>
@@ -67,7 +67,7 @@
   "bankName" : "string"
 }</con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="fb2f349c-8609-4b83-9cd1-581c5c69b596" mediaType="application/json">
+    <con:request id="fb2f349c-8609-4b83-9cd1-581c5c69b596" mediaType="application/json" name="Request 1">
       <con:settings/>
       <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
       <con:credentials>
@@ -77,7 +77,7 @@
       <con:parameters/>
     </con:request>
   </con:method>
-  <con:method name="DELETE" id="0e32a00d-a3d0-4dcc-b673-20d7f762d232" method="DELETE">
+  <con:method id="0e32a00d-a3d0-4dcc-b673-20d7f762d232" method="DELETE" name="DELETE">
     <con:description>Ability to return details of specific payees using ID's</con:description>
     <con:settings/>
     <con:parameters>
@@ -100,7 +100,7 @@
   "bankName" : "string"
 }</con:sampleContent>
     </con:representation>
-    <con:request name="Request 1" id="38dfa023-89bb-46f7-9900-bfd30062907a" mediaType="application/json">
+    <con:request id="38dfa023-89bb-46f7-9900-bfd30062907a" mediaType="application/json" name="Request 1">
       <con:settings/>
       <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
       <con:credentials>
