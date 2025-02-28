@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:testCase xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="fb47aad8-3a85-4fee-9e8a-cfa44cb75ca4" keepSession="false" name="Test Case" searchProperties="true" timeout="0">
-  <con:description id="949e0adb-46c2-4b22-9b3b-cbabe19803e5">The test case generated for the REST resource [/payee/{payeeId}] located at [/payee/{payeeId}]</con:description>
+  <con:description>The test case generated for the REST resource [/payee/{payeeId}] located at [/payee/{payeeId}]</con:description>
   <con:settings>
     <con:setting id="fb47aad8-3a85-4fee-9e8a-cfa44cb75ca4fileName">Test-Case</con:setting>
   </con:settings>

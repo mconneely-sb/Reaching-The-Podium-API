@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:restMockAction xmlns:con="http://eviware.com/soapui/config" id="267c3bad-ae96-4b30-a676-96cdf49b155c" method="DELETE" name="/payee/{payeeId}" resourcePath="/payee/{payeeId}">
-  <con:settings id="12c20b11-af90-46a6-9294-597b78e2bca9">
+  <con:settings>
     <con:setting id="267c3bad-ae96-4b30-a676-96cdf49b155cfileName">%2Fpayee%2F%7BpayeeId%7D2</con:setting>
   </con:settings>
   <con:dispatchStyle>SEQUENCE</con:dispatchStyle>

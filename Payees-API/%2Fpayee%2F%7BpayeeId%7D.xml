@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config" id="cda557db-0b03-48c2-a291-7a6c6d0a134e" name="/payee/{payeeId}" path="/payee/{payeeId}">
-  <con:settings id="b50d87b8-023f-4734-8567-2d1824c60d19">
+<con:resource xmlns:con="http://eviware.com/soapui/config" id="cda557db-0b03-48c2-a291-7a6c6d0a134e" name="/payee/{payeeId}" path="/payee/{payeeId}">
+  <con:settings>
     <con:setting id="cda557db-0b03-48c2-a291-7a6c6d0a134efileName">%2Fpayee%2F%7BpayeeId%7D</con:setting>
   </con:settings>
   <con:parameters/>

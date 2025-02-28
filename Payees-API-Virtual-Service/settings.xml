@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:restMockService xmlns:con="http://eviware.com/soapui/config" host="localhost" id="6a68e361-2a39-4fec-92e9-eb107d09e590" name="Payees API Virtual Service" path="/" port="8088">
-  <con:settings id="5febee23-4dbf-4379-a18d-ab1820ec3da7">
+  <con:settings>
     <con:setting id="6a68e361-2a39-4fec-92e9-eb107d09e590fileName">Payees-API-Virtual-Service</con:setting>
   </con:settings>
   <con:properties/>
