@@ -67,13 +67,15 @@
   "bankName" : "string"
 }</con:sampleContent>
     </con:representation>
-    <con:request id="fb2f349c-8609-4b83-9cd1-581c5c69b596" mediaType="application/json" name="Request 1">
+    <con:request id="fb2f349c-8609-4b83-9cd1-581c5c69b596" mediaType="application/json" name="Request 1" postQueryString="false">
       <con:settings/>
       <con:endpoint>https://virtserver.swaggerhub.com/Adrians_Org/Payees_API/1.2.0</con:endpoint>
+      <con:request/>
       <con:credentials>
         <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
       <con:parameters/>
     </con:request>
   </con:method>

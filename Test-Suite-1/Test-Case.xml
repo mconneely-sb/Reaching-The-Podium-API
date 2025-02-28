@@ -71,7 +71,7 @@
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
-        <con:endpoint>https://localhost:8088</con:endpoint>
+        <con:endpoint>http://localhost:8088</con:endpoint>
         <con:request>{
 	"firstName":"${Get Payee#Response#$['firstName']}",
 	"lastName":"${Get Payee#Response#$['lastName']}",
