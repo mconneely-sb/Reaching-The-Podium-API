@@ -8,7 +8,7 @@ To run the complete project you will need API keys for
 * PactFlow
 * ReadyAPI (SLM License Key)
 
-Please fork the project and set up the approperiate GitHub secrets/variables for your account. If you do not need all aspects of the GitHub Action, you can remove those jobs (and ensure you update and `needs` that reference removed jobs)
+Please fork the project and set up the approperiate GitHub secrets/variables for your account. If you do not need all aspects of the GitHub Action, you can remove those jobs (and ensure you update any `needs` that reference removed jobs)
 
 You can visit the SmartBear support center to find the relevant information on each product
 [Support Center](https://support.smartbear.com/) 
