@@ -9,6 +9,7 @@ env:
   swaggerhub_api_name: ${{vars.SWAGGERHUB_API_NAME}} 
   swaggerhub_api_version: ${{vars.SWAGGERHUB_API_VERSION}}  
   pact_broker_base_url: ${{secrets.PACT_BROKER_BASE_URL}}
+  swaggerhub_portal_product: ${{secrets.SWAGGERHUB_PORTAL_PRODUCT}}
   
 jobs:
   install-prerequisites:
@@ -146,7 +147,7 @@ jobs:
       env:
         SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
       run: |
-            curl -X POST "https://api.portal.swaggerhub.com/v1/sections/f3ec3f73-35ed-40d8-9b9d-30598cb14a6a/table-of-contents" \
+            curl -X POST "https://api.portal.swaggerhub.com/v1/sections/$swaggerhub_portal_product/table-of-contents" \
             -H "Authorization: Bearer $SWAGGERHUB_API_KEY" \
             -H "Content-Type: application/json" \
             --data '{
@@ -155,6 +156,6 @@ jobs:
                 "order": 1,
                 "content": {
                   "type": "apiUrl",
-                   "url": "https://api.swaggerhub.com/apis/MConneely/payees-api/1.2.0/swagger.json"
+                   "url": "https://api.swaggerhub.com/apis/$swaggerhub_owner/$swaggerhub_api_name/$swaggerhub_api_version/swagger.json"
                     } 
                 }'
